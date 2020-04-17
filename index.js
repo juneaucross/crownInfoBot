@@ -164,7 +164,7 @@ Total recoveries: ${recovered}`
             let formattedCountry = item.country.replace(/ /g, '-').toLowerCase();
 
             let thumb_url = fetch(`https://assets.thebasetrip.com/api/v2/countries/flags/${formattedCountry}.png`);
-            thumb_url.then(res => checkFlag(res))
+            thumb_url.then(checkFlag)
               .then(data => data.json())
               .then((data) => {
                 console.log(data);
