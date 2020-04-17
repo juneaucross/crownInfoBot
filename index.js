@@ -165,11 +165,11 @@ Total recoveries: ${recovered}`
             let thumb_url = fetch(`https://assets.thebasetrip.com/api/v2/countries/flags/${formattedCountry}.png`);
             thumb_url.then(res => checkFlag(res))
               .then(data => {
-                console.log(data.url.toString());
+                console.log(data.url);
                 return data.url;
               })
               .catch(err => {
-                console.log(err);
+                console.log(321, err);
                 return 'https://raw.githubusercontent.com/juneaucross/crownInfoBot/master/crowninfologo.jpg';
               })
 
