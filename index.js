@@ -166,10 +166,11 @@ Total recoveries: ${recovered}`
             thumb_url.then(res => checkFlag(res))
               .then(data => {
                 console.log(data.url.toString());
-                return data.url.toString();
+                return data.url;
               })
               .catch(err => {
                 console.log(err);
+                return 'https://raw.githubusercontent.com/juneaucross/crownInfoBot/master/crowninfologo.jpg';
               })
 
             results.push({
