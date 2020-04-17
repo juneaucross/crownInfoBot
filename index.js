@@ -32,6 +32,7 @@ const checkFlag = (res) => {
   if (res.ok) {
     return res;
   } else {
+    console.log(321);
     return 'https://raw.githubusercontent.com/juneaucross/crownInfoBot/master/crowninfologo.jpg';
   }
 }
@@ -169,7 +170,7 @@ Total recoveries: ${recovered}`
                 return data;
               })
               .catch(err => {
-                console.log(321, err);
+                console.log(123, err);
                 return 'https://raw.githubusercontent.com/juneaucross/crownInfoBot/master/crowninfologo.jpg';
               })
 
