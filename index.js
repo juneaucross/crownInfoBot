@@ -165,8 +165,8 @@ Total recoveries: ${recovered}`
             let thumb_url = fetch(`https://assets.thebasetrip.com/api/v2/countries/flags/${formattedCountry}.png`);
             thumb_url.then(res => checkFlag(res))
               .then(data => {
-                console.log(data.url);
-                return data.url;
+                console.log(data.url.toString());
+                return data.url.toString();
               })
               .catch(err => {
                 console.log(err);
