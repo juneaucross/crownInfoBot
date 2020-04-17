@@ -30,7 +30,7 @@ const checkStatus = (res) => {
 
 const checkFlag = (res) => {
   if (res.ok) {
-    return res;
+    return res.url;
   } else {
     console.log(321);
     return 'https://raw.githubusercontent.com/juneaucross/crownInfoBot/master/crowninfologo.jpg';
