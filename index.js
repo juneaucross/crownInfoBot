@@ -28,15 +28,6 @@ const checkStatus = (res) => {
   }
 }
 
-const checkFlag = (res) => {
-  if (res.ok) {
-    return res.url.toString();
-  } else {
-    console.log(321);
-    return 'https://raw.githubusercontent.com/juneaucross/crownInfoBot/master/crowninfologo.jpg';
-  }
-}
-
 let logs = [];
 const pushLogs = (ctx) => {
   if (ctx.inlineQuery) {
@@ -162,26 +153,13 @@ Total recoveries: ${recovered}`
               casesToTestsRatio = `${(item.cases/item.totalTests).toFixed(2)*100}%`;
             }
             let formattedCountry = item.country.replace(/ /g, '-').toLowerCase();
-
-            let thumb_url = fetch(`https://assets.thebasetrip.com/api/v2/countries/flags/${formattedCountry}.png`);
-            thumb_url.then(checkFlag)
-              .then(data => data.json())
-              .then((data) => {
-                console.log(data);
-                return data;
-              }
-              )
-              .catch(err => {
-                console.log(123, err);
-                return 'https://raw.githubusercontent.com/juneaucross/crownInfoBot/master/crowninfologo.jpg';
-              })
-
+            let thumb_url = `https://assets.thebasetrip.com/api/v2/countries/flags/${formattedCountry}.png`;
             results.push({
               type: 'article',
               id: item.country,
               title: item.country,
               description: `Cases: ${item.cases}`,
-              thumb_url: thumb_url,
+              thumb_url,
               input_message_content: {
                 message_text: `Country: ${item.country}
 Cases: ${item.cases}
