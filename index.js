@@ -177,7 +177,7 @@ Total recoveries: ${recovered}`
               id: item.country,
               title: item.country,
               description: `Cases: ${item.cases}`,
-              thumb_url: thumb_url,
+              // thumb_url: thumb_url,
               input_message_content: {
                 message_text: `Country: ${item.country}
 Cases: ${item.cases}
