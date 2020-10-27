@@ -1,5 +1,5 @@
 # crownInfoBot
-This bot provides information about world's Covid-19 situation via [covidAPI](https://github.com/javieraviles/covidAPI), wich takes stats from [worldometers.info](https://www.worldometers.info/coronavirus/).
+This bot provides information about world's Covid-19 situation via [covidAPI](https://github.com/javieraviles/covidAPI), which takes stats from [worldometers.info](https://www.worldometers.info/coronavirus/).
 
 ### Commands
 - __/covid__ - shows information about world covid19 situation.
