@@ -187,6 +187,16 @@ Testing trend: ${casesToTestsRatio}`
           console.log(err);
         }
       );
+    } else {
+      ctx.answerInlineQuery({
+        type: 'article',
+        id: ctx.inlineQuery.query,
+        title: 'Keep on typing...',
+        description: `Enter at least 2 characters.`,
+        input_message_content: {
+          message_text: `Sorry, that's not enough 😞. Try again!`
+        }
+      });
     }
   });
 } catch (e) {
