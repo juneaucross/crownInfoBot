@@ -28,7 +28,11 @@ const checkStatus = (res) => {
   }
 }
 
-const formatNumber = (num) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+const formatNumber = (num) => {
+  if (num) {
+   num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+}
 
 let logs = [];
 const pushLogs = (ctx) => {
