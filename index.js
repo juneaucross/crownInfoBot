@@ -193,6 +193,7 @@ Testing trend: ${casesToTestsRatio}`
         id: ctx.inlineQuery.query,
         title: 'Keep on typing...',
         description: `Enter at least 2 characters.`,
+        thumb_url:`https://assets.thebasetrip.com/api/v2/countries/flags/${ctx.inlineQuery.query}.png`,
         input_message_content: {
           message_text: `Sorry, that's not enough 😞. Try again!`
         }
