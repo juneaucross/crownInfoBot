@@ -28,6 +28,8 @@ const checkStatus = (res) => {
   }
 }
 
+const formatNumber = (num) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
 let logs = [];
 const pushLogs = (ctx) => {
   if (ctx.inlineQuery) {
@@ -61,13 +63,13 @@ const getCovidAlliasInfo = (ctx, countryArg) => {
         casesToTestsRatio = `${(cases/totalTests).toFixed(2)*100}%`;
       }
       ctx.replyWithHTML(`<pre>Country: ${country}
-Cases: ${cases}
-Today cases: ${todayCases}
-Deaths: ${deaths}
-Today deaths: ${todayDeaths}
-Recovered: ${recovered}
-Active cases: ${active}
-Total tests: ${totalTests}
+Cases: ${formatNumber(cases)}
+Today cases: ${formatNumber(todayCases)}
+Deaths: ${formatNumber(deaths)}
+Today deaths: ${formatNumber(todayDeaths)}
+Recovered: ${formatNumber(recovered)}
+Active cases: ${formatNumber(active)}
+Total tests: ${formatNumber(totalTests)}
 Testing trend: ${casesToTestsRatio}
 </pre>`);
     })
@@ -89,9 +91,9 @@ const getCovidInfo = (ctx) => {
       .then((data) => data.json())
       .then(({ cases, deaths, recovered }) => {
         ctx.replyWithHTML(`<pre>Total in world:
-${cases} cases
-${deaths} died
-${recovered} recovered
+${formatNumber(cases)} cases
+${formatNumber(deaths)} died
+${formatNumber(recovered)} recovered
 </pre>`);
       })
       .catch((err) => {
@@ -116,12 +118,12 @@ try {
             type: 'article',
             id: cases,
             title: `Global situation`,
-            description: `Cases ${cases}`,
+            description: `Cases ${formatNumber(cases)}`,
             thumb_url: 'https://www.wrpawprint.com/wp-content/uploads/2018/06/EARTH-FREE-PHOTO.jpg',
             input_message_content: {
-              message_text: `Global cases: ${cases}
-Global deaths: ${deaths}
-Total recoveries: ${recovered}`
+              message_text: `Global cases: ${formatNumber(cases)}
+Global deaths: ${formatNumber(deaths)}
+Total recoveries: ${formatNumber(recovered)}`
             }
           })
         })
@@ -158,17 +160,17 @@ Total recoveries: ${recovered}`
               type: 'article',
               id: item.country,
               title: item.country,
-              description: `Cases: ${item.cases}`,
+              description: `Cases: ${formatNumber(item.cases)}`,
               thumb_url,
               input_message_content: {
                 message_text: `Country: ${item.country}
-Cases: ${item.cases}
-Today cases: ${item.todayCases}
-Deaths: ${item.deaths}
-Today deaths: ${item.todayDeaths}
-Recovered: ${item.recovered}
-Active cases: ${item.active}
-Total tests: ${item.totalTests}
+Cases: ${formatNumber(item.cases)}
+Today cases: ${formatNumber(item.todayCases)}
+Deaths: ${formatNumber(item.deaths)}
+Today deaths: ${formatNumber(item.todayDeaths)}
+Recovered: ${formatNumber(item.recovered)}
+Active cases: ${formatNumber(item.active)}
+Total tests: ${formatNumber(item.totalTests)}
 Testing trend: ${casesToTestsRatio}`
               }
             })
