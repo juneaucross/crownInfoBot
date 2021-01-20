@@ -31,6 +31,8 @@ const checkStatus = (res) => {
 const formatNumber = (num) => {
   if (num !== null) {
    num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  } else {
+    console.log(num);
   }
 }
 
