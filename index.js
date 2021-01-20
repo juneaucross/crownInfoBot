@@ -139,6 +139,7 @@ Total recoveries: ${formatNumber(recovered)}`
         })
     } else {
       pushLogs(ctx);
+      console.log(ctx.inlineQuery.query);
       results = [];
       let countries = fetch('https://coronavirus-19-api.herokuapp.com/countries');
       countries.then(checkStatus)
