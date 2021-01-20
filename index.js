@@ -188,7 +188,7 @@ Testing trend: ${casesToTestsRatio}`
         }
       );
     } else {
-      ctx.answerInlineQuery({
+      ctx.answerInlineQuery([{
         type: 'article',
         id: ctx.inlineQuery.query,
         title: 'Keep on typing...',
@@ -196,7 +196,7 @@ Testing trend: ${casesToTestsRatio}`
         input_message_content: {
           message_text: `Sorry, that's not enough 😞. Try again!`
         }
-      });
+      }]);
     }
   });
 } catch (e) {
