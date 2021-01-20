@@ -137,7 +137,7 @@ Total recoveries: ${formatNumber(recovered)}`
         .catch((err) => {
           console.log(err);
         })
-    } else if (ctx.inlineQuery.query >= 2) {
+    } else if (ctx.inlineQuery.query.length >= 2) {
       pushLogs(ctx);
       results = [];
       let countries = fetch('https://coronavirus-19-api.herokuapp.com/countries');
@@ -187,7 +187,7 @@ Testing trend: ${casesToTestsRatio}`
           console.log(err);
         }
       );
-    } else {
+    } else if (ctx.inlineQuery.query.length < 2) {
       ctx.answerInlineQuery([{
         type: 'article',
         id: ctx.inlineQuery.query,
