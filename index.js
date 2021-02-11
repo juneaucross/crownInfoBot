@@ -131,7 +131,9 @@ try {
             input_message_content: {
               message_text: `Global cases: ${formatNumber(cases)}
 Global deaths: ${formatNumber(deaths)}
-Total recoveries: ${formatNumber(recovered)}`
+Total recoveries: ${formatNumber(recovered)}
+
+#crownInfo`
             }
           })
         })
