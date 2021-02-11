@@ -75,6 +75,8 @@ Recovered: ${formatNumber(recovered)}
 Active cases: ${formatNumber(active)}
 Total tests: ${formatNumber(totalTests)}
 Testing trend: ${casesToTestsRatio}
+
+#crownInfo
 </pre>`);
     })
     .catch((err) => {
@@ -98,6 +100,8 @@ const getCovidInfo = (ctx) => {
 ${formatNumber(cases)} cases
 ${formatNumber(deaths)} died
 ${formatNumber(recovered)} recovered
+
+#crownInfo
 </pre>`);
       })
       .catch((err) => {
@@ -175,7 +179,9 @@ Today deaths: ${formatNumber(item.todayDeaths)}
 Recovered: ${formatNumber(item.recovered)}
 Active cases: ${formatNumber(item.active)}
 Total tests: ${formatNumber(item.totalTests)}
-Testing trend: ${casesToTestsRatio}`
+Testing trend: ${casesToTestsRatio}
+
+#crownInfo`
               }
             })
           });
